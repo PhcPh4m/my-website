@@ -1,9 +1,9 @@
 # My Website - Trang Giới Thiệu Bản Thân
 
-Dự án thực hành Buổi 1 môn **Lập trình Web**.
+Dự án thực hành Buổi 1 môn Lập trình Web.
 
 ##  Nội dung
-- Trang web cá nhân sử dụng **HTML5** và **CSS3**.
+- Trang web cá nhân sử dụng HTML5 và CSS3.
 - Cấu trúc thư mục chuẩn bao gồm: HTML, CSS, Images, JS.
 - Quản lý mã nguồn và đẩy dự án lên GitHub bằng **Git**.
 
