@@ -1,0 +1,30 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* bạn có thể đổi màu */
+    padding: 20px;
+}
+
+
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+
+
+p {
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+
+h2 {
+    color: darkred;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+
+a:hover {
+    color: green;
+}
