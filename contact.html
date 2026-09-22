@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phạm Minh Phúc – Liên hệ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Phạm Minh Phúc</h1>
+        <p>Gửi thông điệp liên hệ và đóng góp ý kiến</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Trang chủ</a> | 
+        <a href="about.html">Giới thiệu</a> | 
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Form liên hệ cá nhân</h2>
+            <form action="#" method="post">
+                
+            
+                <fieldset>
+                    <legend>Thông tin cá nhân</legend>
+                    
+                    <p>
+                        <label for="fullname">Họ và tên (*):</label><br>
+                        <input type="text" id="fullname" name="fullname" required minlength="2" placeholder="Nhập họ và tên...">
+                    </p>
+
+                    <p>
+                        <label for="dob">Ngày sinh:</label><br>
+                        <input type="date" id="dob" name="dob">
+                    </p>
+
+                    <p>
+                        <label for="email">Email (*):</label><br>
+                        <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+                    </p>
+
+                    <p>
+                        <label for="phone">Số điện thoại (*):</label><br>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,11}" placeholder="0769579827 (10-11 số)">
+                    </p>
+
+                    <p>
+                        <label for="university">Trường Đại học:</label><br>
+                        <input type="text" id="university" name="university" list="uni-list" placeholder="Chọn hoặc nhập tên trường...">
+                        <datalist id="uni-list">
+                            <option value="Đại học Khoa học Tự nhiên - ĐHQG TP.HCM">
+                            <option value="Đại học Công nghệ Thông tin - ĐHQG TP.HCM">
+                            <option value="Đại học Sư phạm Kỹ thuật TP.HCM">
+                            <option value="Đại học Bách Khoa - ĐHQG TP.HCM">
+                        </datalist>
+                    </p>
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend>Nội dung liên hệ</legend>
+
+                    <p>
+                        <label for="topic">Chủ đề liên hệ:</label><br>
+                        <select id="topic" name="topic">
+                            <option value="gopy">Góp ý trang web</option>
+                            <option value="hoptac">Hợp tác học tập / Dự án</option>
+                            <option value="khac">Cần hỗ trợ khác</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label>Kênh phản hồi mong muốn:</label><br>
+                        <input type="radio" id="contact_email" name="contact_method" value="email" checked>
+                        <label for="contact_email">Email</label>
+
+                        <input type="radio" id="contact_phone" name="contact_method" value="phone">
+                        <label for="contact_phone">Điện thoại</label>
+
+                        <input type="radio" id="contact_zalo" name="contact_method" value="zalo">
+                        <label for="contact_zalo">Zalo</label>
+                    </p>
+
+                    <p>
+                        <label for="message">Nội dung tin nhắn (*):</label><br>
+                        <textarea id="message" name="message" rows="5" cols="40" required minlength="10" placeholder="Nhập nội dung tin nhắn (ít nhất 10 ký tự)..."></textarea>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="agree" name="agree" required>
+                        <label for="agree">Tôi đồng ý cung cấp thông tin liên hệ ở trên (*)</label>
+                    </p>
+                </fieldset>
+
+                <br>
+
+                <div>
+                    <button type="submit">Gửi thông tin</button>
+                    <button type="reset">Xoá (Làm lại)</button>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            Email: <a href="mailto:phucphamp578@gmail.com">phucphamp578@gmail.com</a><br>
+            SĐT: <a href="tel:0769579827">0769579827</a>
+        </address>
+        <p>&copy; 2026 Phạm Minh Phúc. Cập nhật ngày: <time datetime="2026-09-15">15/09/2026</time></p>
+    </footer>
+
+</body>
+</html>
