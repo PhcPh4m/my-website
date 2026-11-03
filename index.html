@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Trang chủ Phạm Minh Phúc - Sinh viên Big Data Mining</title>
+
+  <meta name="description" content="Khám phá trang web cá nhân của Phạm Minh Phúc để tìm hiểu về lý lịch học tập, kỹ năng, các dự án Big Data Mining và thông tin liên hệ trực tiếp.">
+  <meta property="og:title" content="Trang chủ Phạm Minh Phúc - Sinh viên Big Data Mining">
+  <meta property="og:description" content="Khám phá trang web cá nhân của Phạm Minh Phúc để tìm hiểu về lý lịch học tập, kỹ năng, các dự án Big Data Mining và thông tin liên hệ trực tiếp.">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Điều hướng chính">
+      <h1 class="navbar__brand">Phạm Minh Phúc</h1>
+      <ul class="navbar__links">
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#education">Học tập</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+        <li><a href="https://github.com/PhcPh4m/my-website" target="_blank" rel="noopener">GitHub Repo</a></li>
+      </ul>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">🌙 Chế độ tối</button>
+    </nav>
+  </header>
+
+  <main class="main-content">
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">Giới thiệu</h2>
+      <article class="card">
+        <img src="https://tinyurl.com/ytrvbtvn" alt="Chân dung cá nhân của Phạm Minh Phúc" width="150" height="150" loading="lazy">
+        <p>
+          Họ và tên: <strong>Phạm Minh Phúc</strong><br>
+          Quê quán: TP. Hồ Chí Minh<br>
+          Chuyên ngành: Khai thác dữ liệu lớn (Big Data Mining)
+        </p>
+      </article>
+
+      <ul class="card-grid">
+        <li>
+          <h3>Sở thích</h3>
+          <ul>
+            <li>Phân tích dữ liệu</li>
+            <li>Nghe nhạc</li>
+            <li>Xem phim</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Mục tiêu học kỳ</h3>
+          <ol>
+            <li>Hoàn thành các môn học chuyên ngành</li>
+            <li>Thực hành xây dựng trang web cá nhân chuẩn SEO</li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Kỹ năng</h2>
+      <p id="skills-summary" class="status" role="status"></p>
+      <ul class="card-grid" id="skills-list"></ul>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Dự án đã thực hiện</h2>
+      <p id="projects-status" class="status" role="status"></p>
+      <ul class="card-grid" id="projects-list"></ul>
+    </section>
+
+    <section id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Quá trình học tập</h2>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <caption>Quá trình học tập và đào tạo</caption>
+          <thead>
+            <tr>
+              <th scope="col">Thời gian</th>
+              <th scope="col">Đơn vị đào tạo</th>
+              <th scope="col">Chuyên ngành</th>
+              <th scope="col">Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2023 - nay</td>
+              <td>Trường Đại học Gia Định</td>
+              <td>Khai thác dữ liệu lớn (Big Data Mining)</td>
+              <td>Đang theo học</td>
+            </tr>
+            <tr>
+              <td>2020 - 2023</td>
+              <td>Trường THPT Nguyễn Trãi</td>
+                <td>Khoa học tự nhiên</td>
+              <td>Tốt nghiệp</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Liên hệ</h2>
+      <form class="contact-form" id="contact-form" novalidate>
+
+        <div class="form-group">
+          <label for="fullname">Họ và tên *</label>
+          <input type="text" id="fullname" name="fullname" required
+                 pattern="[A-Za-zÀ-ỹ ]{2,50}"
+                 title="Chỉ gồm chữ cái, từ 2 đến 50 ký tự">
+          <span class="field-error" id="fullname-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required
+                 placeholder="ten@example.com">
+          <span class="field-error" id="email-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Số điện thoại *</label>
+          <input type="tel" id="phone" name="phone" required
+                 pattern="0[0-9]{9}"
+                 title="Gồm 10 chữ số, bắt đầu bằng 0">
+          <span class="field-error" id="phone-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="birthdate">Ngày sinh *</label>
+          <input type="date" id="birthdate" name="birthdate" required>
+          <span class="field-error" id="birthdate-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Nội dung liên hệ *</label>
+          <textarea id="message" name="message" rows="4" required minlength="10"></textarea>
+          <span class="field-error" id="message-error" aria-live="polite"></span>
+        </div>
+
+        <button type="submit">Gửi liên hệ</button>
+        <p id="form-message" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Phạm Minh Phúc. Cập nhật ngày: <time datetime="2026-11-03">03/11/2026</time></p>
+    <p>Liên hệ email: <a href="mailto:phucphamp578@gmail.com">phucphamp578@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>
