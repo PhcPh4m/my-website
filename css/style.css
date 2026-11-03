@@ -173,13 +173,18 @@ section h2 {
 @media (min-width: 768px) {
   .card {
     flex-direction: row;
+    align-items: flex-start;
     text-align: left;
   }
 }
 
 .card img {
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .card p {
