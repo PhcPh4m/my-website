@@ -1,0 +1,455 @@
+// ==========================================
+// 1. BIẾN (VARIABLES)
+// ==========================================
+$color-primary: #2563eb;
+$color-accent: #f59e0b;
+$color-error: #dc2626;
+$color-success: #16a34a;
+
+$color-light-bg: #f8fafc;
+$color-light-surface: #ffffff;
+$color-light-text: #1e293b;
+$color-light-muted: #64748b;
+$color-light-border: #cbd5e1;
+
+$color-dark-bg: #0f172a;
+$color-dark-surface: #1e293b;
+$color-dark-text: #e2e8f0;
+$color-dark-muted: #94a3b8;
+$color-dark-border: #334155;
+
+$font-family-base: "Segoe UI", Roboto, Arial, sans-serif;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.75rem;
+
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+$radius: 8px;
+$shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+// ==========================================
+// 2. MIXIN
+// ==========================================
+@mixin respond-up($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin card-style {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: $spacing-md;
+}
+
+@mixin button-style {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  background-color: $color-primary;
+  color: #fff;
+  border: none;
+  border-radius: $radius;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+// ==========================================
+// 3. RESET & THEME (CSS custom properties)
+// ==========================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #{$color-light-bg};
+  --color-surface: #{$color-light-surface};
+  --color-text: #{$color-light-text};
+  --color-muted: #{$color-light-muted};
+  --color-border: #{$color-light-border};
+}
+
+body.dark-theme {
+  --color-bg: #{$color-dark-bg};
+  --color-surface: #{$color-dark-surface};
+  --color-text: #{$color-dark-text};
+  --color-muted: #{$color-dark-muted};
+  --color-border: #{$color-dark-border};
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $color-primary;
+}
+
+// ==========================================
+// 4. HEADER & NAVBAR (Flexbox)
+// ==========================================
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-surface);
+  box-shadow: $shadow;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm $spacing-md;
+  padding: $spacing-sm $spacing-md;
+
+  &__brand {
+    margin: 0;
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  &__links {
+    order: 3;
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    gap: $spacing-xs $spacing-md;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a {
+      display: inline-block;
+      padding: $spacing-xs 0;
+      color: var(--color-text);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        color: $color-primary;
+        border-bottom-color: $color-primary;
+      }
+    }
+  }
+
+  @include respond-up($bp-tablet) {
+    flex-wrap: nowrap;
+
+    &__links {
+      order: 0;
+      flex-basis: auto;
+      width: auto;
+    }
+  }
+}
+
+.theme-toggle {
+  @include button-style;
+  padding: $spacing-xs $spacing-md;
+  font-size: 0.9rem;
+}
+
+// ==========================================
+// 5. MAIN & SECTIONS
+// ==========================================
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: $spacing-lg $spacing-md;
+}
+
+section {
+  h2 {
+    display: inline-block;
+    margin: 0 0 $spacing-md;
+    padding-bottom: $spacing-xs;
+    font-size: $font-size-xl;
+    color: $color-primary;
+    border-bottom: 3px solid $color-accent;
+  }
+}
+
+.status {
+  min-height: 1.5em;
+  color: var(--color-muted);
+
+  &.is-success {
+    color: $color-success;
+  }
+
+  &.is-error {
+    color: $color-error;
+  }
+}
+
+// ==========================================
+// 6. CARD & GRID (CSS Grid)
+// ==========================================
+.card {
+  @include card-style;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  text-align: center;
+
+  @include respond-up($bp-tablet) {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    @include card-style;
+  }
+
+  @include respond-up($bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-up($bp-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Kỹ năng (JS render)
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.skill-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.skill-level {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.skill-bar {
+  height: 10px;
+  overflow: hidden;
+  background-color: var(--color-border);
+  border-radius: 999px;
+
+  &__fill {
+    height: 100%;
+    background: linear-gradient(90deg, $color-primary, $color-accent);
+    border-radius: inherit;
+    transition: width 0.6s ease;
+  }
+}
+
+// Dự án (JS render)
+.project-item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+}
+
+.project-year {
+  align-self: flex-start;
+  padding: 2px $spacing-sm;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e293b;
+  background-color: $color-accent;
+  border-radius: 999px;
+}
+
+// ==========================================
+// 7. BẢNG DỮ LIỆU
+// ==========================================
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  background-color: var(--color-surface);
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  caption {
+    padding: $spacing-sm;
+    font-style: italic;
+    text-align: left;
+    color: var(--color-muted);
+  }
+
+  th,
+  td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  th {
+    color: #fff;
+    background-color: $color-primary;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--color-bg);
+  }
+}
+
+// ==========================================
+// 8. FORM
+// ==========================================
+.contact-form {
+  @include card-style;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  max-width: 640px;
+
+  @include respond-up($bp-tablet) {
+    padding: $spacing-lg;
+  }
+
+  button[type="submit"] {
+    @include button-style;
+    align-self: flex-start;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: $spacing-sm;
+    font: inherit;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: $radius;
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 1px;
+    }
+
+    &.is-invalid {
+      border-color: $color-error;
+    }
+  }
+}
+
+.field-error {
+  min-height: 1.2em;
+  font-size: 0.875rem;
+  color: $color-error;
+}
+
+.form-message {
+  min-height: 1.5em;
+  margin: 0;
+  font-weight: 600;
+
+  &.is-success {
+    color: $color-success;
+  }
+
+  &.is-error {
+    color: $color-error;
+  }
+}
+
+// ==========================================
+// 9. FOOTER
+// ==========================================
+.site-footer {
+  padding: $spacing-lg $spacing-md;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-muted);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+
+  p {
+    margin: 0;
+  }
+}
